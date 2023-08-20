@@ -1,8 +1,15 @@
+import { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
+import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({producto}) => {
+    const [quantityAdded, setQuantityAdded] = useState('');
+    const {addItem} = useContext(CartContext);
+
     const onAdd = (cantidad) => {
-        console.log('compraste...');
+        setQuantityAdded(cantidad);
+        addItem(producto, cantidad);
     }
     return (
         <>
@@ -11,11 +18,12 @@ const ItemDetail = ({producto}) => {
                 <img src={producto.img} alt={producto.name} />
                 <p>{producto.description}</p>
                 <p>${producto.price}</p>
-                <ItemCount 
+                { quantityAdded === '' ? <ItemCount 
                     initial={1}
                     stock={producto.stock}
                     onAdd={onAdd}
                 />
+                : <Link to="/cart" className="bg-teal-500 hover:bg-teal-600 p-2 my-2 rounded-lg">Ir al Carrito</Link>}
             </div>
         </>
     )

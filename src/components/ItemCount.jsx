@@ -23,7 +23,11 @@ const ItemCount = ({stock, onAdd, initial}) => {
                     <span className="p-3">{count}</span>
                     <button className="bg-teal-500 hover:bg-teal-600 transition-all py-2 px-3 rounded-md" onClick={sumar}>+</button>
                 </div>
-                <button className={`bg-teal-500 transition-all p-2 rounded-md mt-2 ${count === 0 ? 'opacity-50' : 'opacity-100 hover:bg-teal-600'}`} disabled={count === 0} onClick={() => onAdd(count)}>Comprar</button>
+                <button
+                    className={`bg-teal-500 transition-all p-2 rounded-md mt-2 ${count === 0 ? 'opacity-50' : 'opacity-100 hover:bg-teal-600'}`}
+                    disabled={count === 0}
+                    onClick={() => onAdd(count)}
+                >Comprar</button>
             </div>
         </>
     )

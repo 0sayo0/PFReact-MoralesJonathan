@@ -1,5 +1,9 @@
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
 function ShoppingCart() {
 
+    const {cartQuantity} = useContext(CartContext);
 
     return(
         <>
@@ -11,7 +15,7 @@ function ShoppingCart() {
                 <path d="M17 17h-11v-14h-2" />
                 <path d="M6 5l14 1l-1 7h-13" />
             </svg>
-            <sup className="text-l">3</sup>
+            { cartQuantity() > 0 && <sup className="text-l">{cartQuantity()}</sup>}
         </a>
         </>
     )

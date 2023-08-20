@@ -29,7 +29,7 @@ function NavBar() {
                             <NavLink to='/' className="mx-2 text-sm hover:underline">Todos los Productos</NavLink>
                         </div>
                     </ul>
-                    <ShoppingCart />
+                    <NavLink to='/cart'><ShoppingCart /></NavLink>
                 </nav>
             </div>
         </>
